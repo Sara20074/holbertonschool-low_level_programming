@@ -1,4 +1,4 @@
-(C).# holbertonschool-low_level_programming
+# holbertonschool-low_level_programming
 
 Low-level programming projects (C).
 
