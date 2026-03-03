@@ -10,13 +10,14 @@ int _atoi(char *s)
 {
 	int i;
 	int sign;
-	unsigned int num;
 	int started;
+	int result;
+	int digit;
 
 	i = 0;
 	sign = 1;
-	num = 0;
 	started = 0;
+	result = 0;
 
 	while (s[i] != '\0')
 	{
@@ -26,9 +27,14 @@ int _atoi(char *s)
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			started = 1;
-			num = (num * 10) + (s[i] - '0');
+			digit = s[i] - '0';
+
+			if (sign == -1)
+				result = (result * 10) - digit;
+			else
+				result = (result * 10) + digit;
 		}
-		else if (started == 1)
+		else if (started)
 		{
 			break;
 		}
@@ -36,5 +42,5 @@ int _atoi(char *s)
 		i++;
 	}
 
-	return (sign * (int)num);
+	return (result);
 }
